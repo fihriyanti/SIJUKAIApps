@@ -9,6 +9,42 @@ import styles from './Styles/LoginScreenStyles'
 // import { Icon } from 'react-native-vector-icons/icon'
 
 export default class HomeScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            uname: '',
+            passw: '',
+        }
+    }
+
+    login = () => {
+        var user = this.state.uname;
+        var pass = this.state.passw;
+
+        fetch('http://192.168.43.101/juaraapps/login.php', {
+            method: 'post',
+            header: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                uname: user,
+                passw: pass
+            })
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                if (responseJson == 'ok') {
+                    alert('Password Matched');
+                } else {
+                    alert('Try Again');
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        // alert('login pressed ' + user + ' ' + pass)
+    }
 
     render() {
         return (
@@ -20,23 +56,22 @@ export default class HomeScreen extends Component {
 
                         {/* </View> */}
                     </View>
-                    <View style={{margin: 20}}>
+                    <View style={{ margin: 20 }}>
                         <Item style={styles.bgInput} inlineLabel>
-                            <Icon type='FontAwesome' name='user' style={{color: '#112B41'}} />
+                            <Icon type='FontAwesome' name='user' style={{ color: '#112B41' }} />
                             <Input placeholder="Username"></Input>
                         </Item>
                         <Item style={styles.bgInput} inlineLabel>
-                            <Icon type='FontAwesome' name='key' style={{color: '#112B41'}} />
+                            <Icon type='FontAwesome' name='key' style={{ color: '#112B41' }} />
                             <Input placeholder="Password"></Input>
                         </Item>
-                        <Text style={{color: 'black', fontSize: 18, textAlign: 'right', marginBottom: 10, fontWeight: 'bold'}}>Forgot password?</Text>
-                        <Button full style={styles.btnLogin}
-                        onPress={() => this.props.navigation.navigate('HomeScreen')}
-                        >
+                        <Text style={{ color: 'black', fontSize: 18, textAlign: 'right', marginBottom: 10, fontWeight: 'bold' }}>Forgot password?</Text>
+
+                        <Button full style={styles.btnLogin} onPress={this.login}>
                             <Text style={styles.txtLogin}>SIGN IN</Text>
                         </Button>
                         <Button full style={styles.btnSign}
-                        onPress={() => this.props.navigation.navigate('SignUpScreen')}
+                            onPress={() => this.props.navigation.navigate('SignUpScreen')}
                         >
                             <Text style={styles.txtSign}>SIGN UP</Text>
                         </Button>
