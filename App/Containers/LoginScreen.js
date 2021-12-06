@@ -8,7 +8,7 @@ import { Images } from '../Themes'
 import styles from './Styles/LoginScreenStyles'
 // import { Icon } from 'react-native-vector-icons/icon'
 
-export default class LoginScreen extends Component {
+export default class HomeScreen extends Component {
 
     render() {
         return (
@@ -29,10 +29,15 @@ export default class LoginScreen extends Component {
                             <Icon type='FontAwesome' name='key' style={{color: '#112B41'}} />
                             <Input placeholder="Password"></Input>
                         </Item>
-                        <Button full style={styles.btnLogin}>
+                        <Text style={{color: 'black', fontSize: 18, textAlign: 'right', marginBottom: 10, fontWeight: 'bold'}}>Forgot password?</Text>
+                        <Button full style={styles.btnLogin}
+                        onPress={() => this.props.navigation.navigate('HomeScreen')}
+                        >
                             <Text style={styles.txtLogin}>SIGN IN</Text>
                         </Button>
-                        <Button full style={styles.btnSign}>
+                        <Button full style={styles.btnSign}
+                        onPress={() => this.props.navigation.navigate('SignUpScreen')}
+                        >
                             <Text style={styles.txtSign}>SIGN UP</Text>
                         </Button>
                     </View>

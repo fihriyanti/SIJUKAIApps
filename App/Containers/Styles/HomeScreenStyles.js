@@ -12,7 +12,7 @@ export default StyleSheet.create({
   },
   logo: {
     // marginTop: Metrics.doubleSection,
-    height: 100,
+    height: 80,
     width: Metrics.images.ikon,
     resizeMode: 'contain'
   },
@@ -55,7 +55,7 @@ export default StyleSheet.create({
     opacity: 0.8, 
     borderRadius: 30, 
     paddingHorizontal: 20,
-    marginBottom: 20,
+    marginBottom: 20
   },
   txtSign: {
     color: '#1D3B54',

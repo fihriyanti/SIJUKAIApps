@@ -5,10 +5,10 @@ import { Images } from '../Themes'
 
 
 // Styles
-import styles from './Styles/LoginScreenStyles'
+import styles from './Styles/SignUpScreenStyles'
 // import { Icon } from 'react-native-vector-icons/icon'
 
-export default class LaunchScreen extends Component {
+export default class SignUpScreen extends Component {
 
     render() {
         return (
@@ -16,24 +16,34 @@ export default class LaunchScreen extends Component {
                 <ImageBackground source={Images.bg} resizeMode="cover" style={styles.image} imageStyle={{ opacity: 0.6 }}>
                     <View style={styles.centered}>
                         <Image source={Images.logoApp1} style={styles.logo} />
-                        {/* <View> */}
-
-                        {/* </View> */}
                     </View>
-                    <View style={{margin: 20}}>
+                    <View style={{ margin: 20 }}>
                         <Item style={styles.bgInput} inlineLabel>
-                            <Icon type='FontAwesome' name='user' style={{color: '#112B41'}} />
+                            <Icon type='FontAwesome' name='user' style={{ color: '#112B41' }} />
+                            <Input placeholder="Nama Panjang"></Input>
+                        </Item>
+                        <Item style={styles.bgInput} inlineLabel>
+                            <Icon type='Entypo' name='email' style={{ color: '#112B41' }} />
+                            <Input placeholder="Email"></Input>
+                        </Item>
+                        <Item style={styles.bgInput} inlineLabel>
+                            <Icon type='FontAwesome' name='phone' style={{ color: '#112B41' }} />
+                            <Input placeholder="No HP (Aktif)"></Input>
+                        </Item>
+                        <Item style={styles.bgInput} inlineLabel>
+                            <Icon type='FontAwesome' name='university' style={{ color: '#112B41' }} />
+                            <Input placeholder="Asal Kampus"></Input>
+                        </Item>
+                        <Item style={styles.bgInput} inlineLabel>
+                            <Icon type='FontAwesome' name='user' style={{ color: '#112B41' }} />
                             <Input placeholder="Username"></Input>
                         </Item>
                         <Item style={styles.bgInput} inlineLabel>
-                            <Icon type='FontAwesome' name='key' style={{color: '#112B41'}} />
+                            <Icon type='FontAwesome' name='key' style={{ color: '#112B41' }} />
                             <Input placeholder="Password"></Input>
                         </Item>
                         <Button full style={styles.btnLogin}>
-                            <Text style={styles.txtLogin}>SIGN IN</Text>
-                        </Button>
-                        <Button full style={styles.btnSign}>
-                            <Text style={styles.txtSign}>SIGN UP</Text>
+                            <Text style={styles.txtLogin}>SIGN UP</Text>
                         </Button>
                     </View>
                 </ImageBackground>
