@@ -36,6 +36,7 @@ export default class HomeScreen extends Component {
             .then((responseJson) => {
                 if (responseJson == 'ok') {
                     alert('Password Matched');
+                    this.props.navigation.navigate('HomeScreen')
                 } else {
                     alert('Try Again');
                 }
@@ -59,11 +60,11 @@ export default class HomeScreen extends Component {
                     <View style={{ margin: 20 }}>
                         <Item style={styles.bgInput} inlineLabel>
                             <Icon type='FontAwesome' name='user' style={{ color: '#112B41' }} />
-                            <Input placeholder="Username"></Input>
+                            <Input onChangeText={uname => this.setState({ uname })} placeholder="Username"></Input>
                         </Item>
                         <Item style={styles.bgInput} inlineLabel>
                             <Icon type='FontAwesome' name='key' style={{ color: '#112B41' }} />
-                            <Input placeholder="Password"></Input>
+                            <Input secureTextEntry={true} onChangeText={passw => this.setState({ passw })} placeholder="Password"></Input>
                         </Item>
                         <Text style={{ color: 'black', fontSize: 18, textAlign: 'right', marginBottom: 10, fontWeight: 'bold' }}>Forgot password?</Text>
 
